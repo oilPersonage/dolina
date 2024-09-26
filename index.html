@@ -11,12 +11,52 @@
 	<title>Vite App</title>
 </head>
 <body>
+<!--LOGO-->
+<a id="header-logo" class="fixed z-[51] top-4 left-[50%] -translate-x-[50%] mix-blend-difference" href="#">
+	<svg class="logo-arrow absolute -top-1 left-[50%] -translate-x-[50%]" width="16" height="14" viewBox="0 0 31 14"
+	     stroke="var(--accentReverse)"
+	     xmlns="http://www.w3.org/2000/svg">
+		<path d="M1.72705 11.0295L15.4282 3.43341L29.4136 11.0295" stroke="inherit" stroke-width="3"/>
+	</svg>
+
+	<svg class="h-8" width="145" height="27" viewBox="0 0 145 27" fill="var(--accentReverse)"
+	     xmlns="http://www.w3.org/2000/svg">
+		<path class="logo-n"
+		      d="M91.4268 0.731201H98.9229L106.383 12.3879V0.731201H114.525V25.802H107.029L99.5685 14.1095V25.802H91.4268V0.731201Z"
+		      fill="inherit"/>
+		<path class="logo-l" d="M58.9308 0.760986H67.4628V18.7609H76.8588V25.9249H58.9308V0.760986Z" fill="inherit"/>
+		<path class="logo-o"
+		      d="M42.0933 26.8822C39.5253 26.8822 37.1973 26.3302 35.1093 25.2262C33.0453 24.1222 31.4133 22.5862 30.2133 20.6182C29.0133 18.6262 28.4133 16.3462 28.4133 13.7782C28.4133 11.2102 29.0133 8.93018 30.2133 6.93818C31.4133 4.94619 33.0453 3.39818 35.1093 2.29418C37.1973 1.19019 39.5253 0.638184 42.0933 0.638184C44.6373 0.638184 46.9413 1.19019 49.0053 2.29418C51.0933 3.39818 52.7373 4.94619 53.9373 6.93818C55.1373 8.93018 55.7373 11.2102 55.7373 13.7782C55.7373 16.3462 55.1373 18.6262 53.9373 20.6182C52.7373 22.5862 51.0933 24.1222 49.0053 25.2262C46.9413 26.3302 44.6373 26.8822 42.0933 26.8822ZM42.0933 18.8542C43.5333 18.8542 44.7213 18.3982 45.6573 17.4862C46.5933 16.5742 47.0613 15.3382 47.0613 13.7782C47.0613 12.2182 46.5933 10.9822 45.6573 10.0702C44.7213 9.15819 43.5333 8.70218 42.0933 8.70218C40.6293 8.70218 39.4293 9.15819 38.4933 10.0702C37.5573 10.9822 37.0893 12.2182 37.0893 13.7782C37.0893 15.3382 37.5573 16.5742 38.4933 17.4862C39.4533 18.3982 40.6533 18.8542 42.0933 18.8542Z"
+		      fill="inherit"/>
+		<path class="logo-d"
+		      d="M0.846558 0.638184H10.8192C13.6968 0.638184 16.2148 1.15914 18.373 2.20105C20.5561 3.24296 22.243 4.7314 23.4338 6.66638C24.6245 8.60135 25.2199 10.8836 25.2199 13.5132C25.2199 17.8297 23.9299 21.1043 21.3499 23.3369C18.7948 25.5448 15.2845 26.6487 10.8192 26.6487H0.846558V0.638184ZM11.4145 18.4623C14.6395 18.4623 16.252 16.8126 16.252 13.5132C16.252 12 15.8303 10.8464 14.9868 10.0526C14.1434 9.23394 12.9526 8.82462 11.4145 8.82462H9.66562V18.4623H11.4145Z"
+		      fill="inherit"/>
+		<path class="logo-i" d="M80.0518 0.638184H88.2338V25.802H80.0518V0.638184Z" fill="inherit"/>
+		<path class="logo-a" fill-rule="evenodd" clip-rule="evenodd"
+		      d="M126.754 0.731201H134.788L144.831 25.8019H136.116L134.502 21.4262H127.041L125.427 25.8019H116.712L126.754 0.731201ZM132.636 15.1854L130.771 9.41091L128.906 15.1854H132.636Z"
+		      fill="inherit"/>
+	</svg>
+
+	<svg class="logo-t absolute origin-center left-[80px] -top-[10px] transition-colors" width="8" height="8"
+	     viewBox="0 0 10 10"
+	     fill="var(--accentReverse)"
+	     xmlns="http://www.w3.org/2000/svg">
+		<path fill="inherit" d="M 0 0 L10 0 L10 10 L0 10 Z"></path>
+		<!--		<path d="M0.491455 8.85095V0.668945H8.61081V8.85095L0.491455 8.85095Z" fill="inherit"/>-->
+	</svg>
+	<svg class="logo-b absolute origin-center left-[38px] transition-colors" width="8" height="8" viewBox="0 0 9 9"
+	     fill="var(--accentReverse)"
+	     xmlns="http://www.w3.org/2000/svg">
+		<path fill="inherit" d="M 0 0 L10 0 L10 10 L0 10 Z"></path>
+	</svg>
+</a>
 <div class="scroll-container">
-	<div class="fixed z-50 top-0 right-0 left-0 pt-4 mix-blend-difference">
+	<div class="fixed z-50 top-0 right-0 left-0">
 		<div class="wrapper flex items-start justify-between">
-			<div class="flex gap-2 min-w-[96px]">
-				<a class="group p-1 rounded-xl transition-colors hover:bg-black" href="#">
-					<svg class="group-hover:fill-accent" width="24" height="24" viewBox="0 0 24 24" fill="var(--bg)"
+			<div class="flex items-center pt-4 bg-bg px-2 -pl-2 pb-2">
+				<a class="group p-1 -my-1 rounded-xl" href="#">
+					<svg class="transition-colors group-hover:fill-accent" width="24" height="24" viewBox="0 0 24 24"
+					     fill="var(--black)"
 					     xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"
@@ -29,8 +69,9 @@
 							fill="inherit"/>
 					</svg>
 				</a>
-				<a class="group p-1 rounded-xl transition-colors hover:bg-black" href="#">
-					<svg class="group-hover:fill-accent" width="24" height="24" viewBox="0 0 24 24" fill="var(--bg)"
+				<a class="group p-1 -my-1 rounded-xl" href="#">
+					<svg class="transition-colors group-hover:fill-accent" width="24" height="24" viewBox="0 0 24 24"
+					     fill="var(--black)"
 					     xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="M14.22 21.6298C13.04 21.6298 11.37 20.7998 10.05 16.8298L9.33 14.6698L7.17 13.9498C3.21 12.6298 2.38 10.9598 2.38 9.77983C2.38 8.60983 3.21 6.92983 7.17 5.59983L15.66 2.76983C17.78 2.05983 19.55 2.26983 20.64 3.34983C21.73 4.42983 21.94 6.20983 21.23 8.32983L18.4 16.8198C17.07 20.7998 15.4 21.6298 14.22 21.6298ZM7.64 7.02983C4.86 7.95983 3.87 9.05983 3.87 9.77983C3.87 10.4998 4.86 11.5998 7.64 12.5198L10.16 13.3598C10.38 13.4298 10.56 13.6098 10.63 13.8298L11.47 16.3498C12.39 19.1298 13.5 20.1198 14.22 20.1198C14.94 20.1198 16.04 19.1298 16.97 16.3498L19.8 7.85983C20.31 6.31983 20.22 5.05983 19.57 4.40983C18.92 3.75983 17.66 3.67983 16.13 4.18983L7.64 7.02983Z"
@@ -40,46 +81,21 @@
 							fill="inherit"/>
 					</svg>
 				</a>
+				<a class="transition-colors text-2xl mx-2 hover:text-accent" href="tel:+79251480131">+7 (925) 148-01-31</a>
 			</div>
-			<a id="header-logo" class="relative" href="#">
-				<svg class="h-8" width="145" height="27" viewBox="0 0 145 27" fill="var(--bg)"
-				     xmlns="http://www.w3.org/2000/svg">
-					<path class="logo-n"
-					      d="M91.4268 0.731201H98.9229L106.383 12.3879V0.731201H114.525V25.802H107.029L99.5685 14.1095V25.802H91.4268V0.731201Z"
-					      fill="inherit"/>
-					<path class="logo-l" d="M58.9308 0.760986H67.4628V18.7609H76.8588V25.9249H58.9308V0.760986Z" fill="inherit"/>
-					<path class="logo-o"
-					      d="M42.0933 26.8822C39.5253 26.8822 37.1973 26.3302 35.1093 25.2262C33.0453 24.1222 31.4133 22.5862 30.2133 20.6182C29.0133 18.6262 28.4133 16.3462 28.4133 13.7782C28.4133 11.2102 29.0133 8.93018 30.2133 6.93818C31.4133 4.94619 33.0453 3.39818 35.1093 2.29418C37.1973 1.19019 39.5253 0.638184 42.0933 0.638184C44.6373 0.638184 46.9413 1.19019 49.0053 2.29418C51.0933 3.39818 52.7373 4.94619 53.9373 6.93818C55.1373 8.93018 55.7373 11.2102 55.7373 13.7782C55.7373 16.3462 55.1373 18.6262 53.9373 20.6182C52.7373 22.5862 51.0933 24.1222 49.0053 25.2262C46.9413 26.3302 44.6373 26.8822 42.0933 26.8822ZM42.0933 18.8542C43.5333 18.8542 44.7213 18.3982 45.6573 17.4862C46.5933 16.5742 47.0613 15.3382 47.0613 13.7782C47.0613 12.2182 46.5933 10.9822 45.6573 10.0702C44.7213 9.15819 43.5333 8.70218 42.0933 8.70218C40.6293 8.70218 39.4293 9.15819 38.4933 10.0702C37.5573 10.9822 37.0893 12.2182 37.0893 13.7782C37.0893 15.3382 37.5573 16.5742 38.4933 17.4862C39.4533 18.3982 40.6533 18.8542 42.0933 18.8542Z"
-					      fill="inherit"/>
-					<path class="logo-d"
-					      d="M0.846558 0.638184H10.8192C13.6968 0.638184 16.2148 1.15914 18.373 2.20105C20.5561 3.24296 22.243 4.7314 23.4338 6.66638C24.6245 8.60135 25.2199 10.8836 25.2199 13.5132C25.2199 17.8297 23.9299 21.1043 21.3499 23.3369C18.7948 25.5448 15.2845 26.6487 10.8192 26.6487H0.846558V0.638184ZM11.4145 18.4623C14.6395 18.4623 16.252 16.8126 16.252 13.5132C16.252 12 15.8303 10.8464 14.9868 10.0526C14.1434 9.23394 12.9526 8.82462 11.4145 8.82462H9.66562V18.4623H11.4145Z"
-					      fill="inherit"/>
-					<path class="logo-i" d="M80.0518 0.638184H88.2338V25.802H80.0518V0.638184Z" fill="inherit"/>
-					<path class="logo-a" fill-rule="evenodd" clip-rule="evenodd"
-					      d="M126.754 0.731201H134.788L144.831 25.8019H136.116L134.502 21.4262H127.041L125.427 25.8019H116.712L126.754 0.731201ZM132.636 15.1854L130.771 9.41091L128.906 15.1854H132.636Z"
-					      fill="inherit"/>
-				</svg>
-
-				<svg class="logo-t absolute origin-center left-[80px] -top-[10px]" width="9" height="9" viewBox="0 0 9 9"
-				     fill="var(--bg)"
-				     xmlns="http://www.w3.org/2000/svg">
-					<path d="M0.491455 8.85095V0.668945H8.61081V8.85095L0.491455 8.85095Z" fill="inherit"/>
-				</svg>
-				<svg class="logo-b absolute origin-center left-[38px]" width="9" height="9" viewBox="0 0 9 9" fill="var(--bg)"
-				     xmlns="http://www.w3.org/2000/svg">
-					<path d="M0.491455 8.85095V0.668945H8.61081V8.85095L0.491455 8.85095Z" fill="inherit"/>
-				</svg>
-			</a>
-			<button class="hamb flex items-center h-min gap-4 px-2 -mx-2 text-bg font-display text-xl font-[400] -mt-2">
-				Меню
-				<span class="w-6 h-8 flex items-end justify-center flex-col gap-1">
-					<span class="w-full h-1 bg-bg"></span>
-					<span class="flex overflow-x-hidden w-full">
-						<span class="hamb-middle h-1 bg-bg"></span>
-						<span class="w-[60%] h-1 bg-bg"></span>
+			<div class="pt-4 bg-bg px-4 -pl-4 pb-2">
+				<button
+					class="hamb flex items-center h-min gap-4 px-2 -mx-2 text-black font-semibold font-display text-xl -mt-2">
+					Меню
+					<span class="w-6 h-8 flex items-end justify-center flex-col gap-1">
+						<span class="w-full h-1 bg-black"></span>
+						<span class="flex overflow-x-hidden w-full">
+							<span class="hamb-middle h-1 bg-black"></span>
+							<span class="w-[60%] h-1 bg-black"></span>
+						</span>
 					</span>
-				</span>
-			</button>
+				</button>
+			</div>
 		</div>
 	</div>
 	<section>

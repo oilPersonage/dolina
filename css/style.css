@@ -21,9 +21,12 @@ html[data-scroll-orientation="horizontal"] {
     font-weight: 400;
 
     /*colors*/
-    --bg: #E9E9E9;
-    --accent: #FB5012;
-    --black: #191919;
+    --bg: #F9F4E0;
+    --accent: #e7aa69;
+    --black: #0B2D4D;
+    --accent2: #6ca3d5;
+    --accentReverse: #e3c3a5;
+    --neutral: #D6D6D8;
 
     color-scheme: light dark;
     color: var(--black);
@@ -40,11 +43,11 @@ body {
 }
 
 a {
-    color: black;
+    color: var(--black);
 }
 
 a:visited {
-    color: black;
+    color: var(--black);
 }
 
 section {
@@ -78,8 +81,14 @@ h1, h2, h3, h4, h5, a {
     @apply w-2 mr-[2px];
 }
 
-#header-logo:hover .logo-b, #header-logo:hover .logo-t {
-    fill: var(--accent);
+.logo-arrow {
+    transition: 0.4s;
+    opacity: 0;
+}
+
+#header-logo.scrolled:hover .logo-arrow {
+    opacity: 1;
+    transform: translate(-50%, -6px);
 }
 
 .hamb-middle, .hamb span {

@@ -43,7 +43,7 @@ const tlTop = anime.timeline({
   autoplay: false, // Can be inherited
 });
 
-const symbolEasing = "easeOutQuad";
+const symbolEasing = "easeInOutExpo";
 
 tlBottom
   .add({
@@ -82,17 +82,21 @@ tlBottom
     "-=1000",
   )
   .add({
-    targets: logoB,
-    scale: 1.5,
-    duration: 200,
-    easing: "easeInOutQuad",
+    targets: logoB.querySelector("path"),
+    d: "M0,0 L10,0 L5,10 L0,0 Z",
   })
-  .add({
-    targets: logoB,
-    rotate: 45,
-    duration: 1000,
-    left: 54,
-  });
+  .add(
+    {
+      targets: logoB,
+      scale: 1.5,
+      rotate: 63,
+      translateY: 10,
+      left: 70,
+      duration: 500,
+      easing: "easeInOutExpo",
+    },
+    "-=1000",
+  );
 
 tlTop
   .add({
@@ -131,30 +135,36 @@ tlTop
     "-=1000",
   )
   .add({
-    targets: logoT,
-    scale: 1.5,
-    duration: 200,
-    easing: "easeInOutQuad",
+    targets: logoT.querySelector("path"),
+    d: "M0,0 L10,0 L5,10 L0,0 Z",
   })
-  .add({
-    targets: logoT,
-    rotate: 45,
-    duration: 1000,
-    left: 68,
-  });
+  .add(
+    {
+      targets: logoT,
+      rotate: 63,
+      translateY: 12,
+      scale: 3,
+      duration: 500,
+      easing: "easeInOutExpo",
+      left: 80,
+      // fill: "var(--black)",
+    },
+    "-=1000",
+  );
 
 window.addEventListener(
   "scroll",
   throttle(function () {
     if (window.scrollY > 200 && !isScrolled) {
       isScrolled = true;
-
+      logo.classList.add("scrolled");
       mainTo.pause();
       mainTo.reverse();
       mainTo.play();
       isAnimate = true;
     } else if (window.scrollY < 200 && isScrolled) {
       isScrolled = false;
+      logo.classList.remove("scrolled");
       mainTo.pause();
       mainTo.reverse();
       mainTo.play();
