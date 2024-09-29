@@ -16,16 +16,16 @@ html[data-scroll-orientation="horizontal"] {
 }
 
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Roboto Flex', system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
     /*colors*/
-    --bg: #F9F4E0;
-    --accent: #e7aa69;
+    --bg: #f9f4e0;
+    --accent: #d26930;
     --black: #0B2D4D;
     --accent2: #6ca3d5;
-    --accentReverse: #e3c3a5;
+    --accentRevert: #e5d196;
     --neutral: #D6D6D8;
 
     color-scheme: light dark;
@@ -38,6 +38,16 @@ html[data-scroll-orientation="horizontal"] {
     -moz-osx-font-smoothing: grayscale;
 }
 
+::-moz-selection { /* Code for Firefox */
+    color: var(--bg);
+    background: var(--black);
+}
+
+::selection {
+    color: var(--bg);
+    background: var(--black);
+}
+
 body {
     @apply overflow-y-hidden max-h-[100vh] m-0 grid;
 }
@@ -46,21 +56,17 @@ a {
     color: var(--black);
 }
 
-a:visited {
-    color: var(--black);
-}
+/*a:visited {*/
+/*    color: inherit;*/
+/*}*/
 
-section {
+section, header {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 10vmin);
-    font-weight: bold;
-    color: var(--accent);
+    align-items: stretch;
     overflow: hidden;
-    max-width: 100vw;
+    max-width: 100svw;
     line-height: 1;
 }
 
@@ -71,6 +77,34 @@ section:nth-of-type(2n) {
 
 h1, h2, h3, h4, h5, a {
     @apply font-display;
+}
+
+h1 {
+    @apply text-[46px] font-semibold
+}
+
+.button {
+    @apply relative font-display bg-accent flex px-10 py-4 text-sm text-white overflow-hidden;
+    transition: .3s ease-out;
+}
+
+.button span {
+    @apply relative;
+    z-index: 10;
+}
+
+.button:after {
+    @apply absolute inset-0 translate-y-[100%] bg-black;
+    content: '';
+    transition: .3s ease-out;
+}
+
+.button:hover:after {
+    @apply translate-y-0;
+}
+
+.button:hover {
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--black) 20%, transparent);
 }
 
 .wrapper {
@@ -122,6 +156,78 @@ h1, h2, h3, h4, h5, a {
     transition: all 0.15s ease-out;
 }
 
-.button {
-    @apply bg-blue-500 flex px-10 py-4 text-sm text-white;
+.hamb.opened > span:first-child {
+    width: 14px;
+    transform: translate(-9px, 4px) rotate(-45deg);
+}
+
+.hamb.opened > span:last-child {
+    transform: translate(7px, 0px) rotate(45deg);
+}
+
+.phone {
+    position: relative;
+}
+
+.menu a {
+    opacity: 0;
+    transition: 0.15s ease-out;
+}
+
+.menu:not(.opened) {
+    user-select: none;
+    pointer-events: none;
+}
+
+.gallery-items > div:has(img) {
+    position: relative;
+    cursor: pointer;
+    /*cursor: zoom-in;*/
+}
+
+.gallery-items > div:has(img) {
+    transition: 0.15s ease-out;
+    overflow: hidden;
+    opacity: .6;
+}
+
+.gallery-items > div:has(img):hover {
+    opacity: 1;
+}
+
+.gallery-items img {
+    transition: 0.6s ease-out;
+}
+
+.gallery-items > div:has(img):hover img {
+    transform: scale(1.1);
+}
+
+.gallery-items > div:not(.gallery-text) {
+    width: 112px;
+}
+
+.photo-with {
+    @apply font-display flex items-center justify-center text-center text-[12px];
+    background: color-mix(in srgb, var(--black) 8%, transparent);
+}
+
+.gallery-items .gallery-text {
+    @apply w-auto;
+}
+
+.gallery-items > div img {
+    @apply w-full h-full object-cover
+}
+
+#popup:not(.show) {
+    z-index: -1;
+    pointer-events: auto;
+    user-select: none;
+    opacity: 0;
+}
+
+#popup {
+    z-index: 51;
+    cursor: zoom-out;
 }

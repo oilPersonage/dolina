@@ -7,10 +7,11 @@ export default {
         black: "var(--black)",
         bg: "var(--bg)",
         accent: "var(--accent)",
+        accentRevert: "var(--accentRevert)",
       },
       fontFamily: {
-        display: "Sofia Sans Condensed",
-        body: "Roboto Slab, sans-serif",
+        display: "Unbounded",
+        body: "Roboto Flex, sans-serif",
       },
     },
   },
