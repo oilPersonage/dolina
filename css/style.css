@@ -64,7 +64,8 @@ section, header {
     width: 100%;
     min-height: 100svh;
     display: flex;
-    overflow: hidden;
+    align-items: start;
+    /*overflow: hidden;*/
     max-width: 100svw;
     line-height: 1;
 }
@@ -78,8 +79,16 @@ h1, h2, h3, h4, h5, a {
     @apply font-display;
 }
 
+h1.is-inview, h2.is-inview, h3.is-inview, h4.is-inview {
+    @apply rotate-12;
+}
+
 h1 {
     @apply text-[46px] font-semibold
+}
+
+h2 {
+    @apply text-[36px] font-semibold;
 }
 
 .button {
@@ -141,12 +150,12 @@ h1 {
     mix-blend-mode: difference;
 }
 
-.scrollbar:hover .scrollbar-thumb {
+.scrollbar:hover .scrollbar_thumb {
     opacity: 1 !important;
     min-width: 12px;
 }
 
-.scrollbar-thumb {
+.scrollbar_thumb {
     height: 126px;
     min-width: 6px;
     background: var(--bg);

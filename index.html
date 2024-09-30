@@ -180,7 +180,7 @@ max-[460px]:right-14"
             </div>
         </div>
     </div>
-    <header>
+    <header data-scroll-section>
         <div class="absolute overflow-hidden inset-0 top-[100px] bottom-[100px] max-[460px]:bottom-0 max-[460px]:top-20">
             <div class="wrapper min-h-full flex flex-1">
                 <div class="relative min-w-full">
@@ -270,7 +270,7 @@ max-[460px]:right-14"
                                      class="gallery-text row-span-2 col-span-6 flex justify-center items-center w-full h-full flex-col px-16 -my-16px
                                             max-[460px]:row-span-3 max-[460px]:px-0 max-[460px]:col-start-1 max-[460px]:items-start max-[460px]:pr-4
                                             max-[460px]:col-span-full">
-                                    <h1 class="pb-4 leading-none max-[480px]:text-2xl">
+                                    <h1 data-scroll class="pb-4 leading-none max-[480px]:text-2xl">
                                         Дагестан
                                     </h1>
                                     <p class="text-[16px]">Покорите вершины: ваше приключение начинается
@@ -340,26 +340,26 @@ max-[460px]:right-14"
             </div>
         </div>
     </header>
-    <section id="who">
-        <div class="sec">
-            <div data-scroll data-scroll-position="end" data-scroll-offset="-200,-200" data-scroll-speed="-0.2">КТО МЫ
-            </div>
+    <section data-scroll-section id="who" data-scroll-section>
+        <div class="wrapper flex h-full">
+            <p data-scroll data-scroll-speed="0.3">123</p>
+            <h2 data-scroll data-scroll-speed="0.3" data-scroll-delay="0.06" class="will-change-transform">КТО МЫ</h2>
         </div>
     </section>
-    <section id="tours">
+    <section data-scroll-section id="tours">
         <div class="sec">
             <div data-scroll data-scroll-position="end,start" data-scroll-offset="-300,-300" data-scroll-speed="-0.2">
                 ТУРЫ
             </div>
         </div>
     </section>
-    <section id="reviews">
+    <section data-scroll-section id="reviews">
         <div class="sec">
             <div data-scroll data-scroll-position="end" data-scroll-offset="-300,-300" data-scroll-speed="-0.3">ОТЗЫВЫ
             </div>
         </div>
     </section>
-    <section id="contacts">
+    <section data-scroll-section id="contacts">
         <div class="sec">
             <div data-scroll data-scroll-sticky data-scroll-speed="-0.3">КОНТАКТЫ</div>
         </div>
@@ -373,9 +373,9 @@ max-[460px]:right-14"
              alt="img">
     </div>
 </div>
-<div class="scrollbar max-[460px]:hidden">
-    <div class="scrollbar-thumb"></div>
-</div>
+<!--<div class="scrollbar max-[460px]:hidden">-->
+<!--    <div class="scrollbar-thumb"></div>-->
+<!--</div>-->
 
 <!--<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>-->
 </body>
