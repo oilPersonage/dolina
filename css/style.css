@@ -64,7 +64,6 @@ section, header {
     width: 100%;
     min-height: 100svh;
     display: flex;
-    align-items: stretch;
     overflow: hidden;
     max-width: 100svw;
     line-height: 1;
@@ -156,12 +155,12 @@ h1 {
     transition: all 0.15s ease-out;
 }
 
-.hamb.opened > span:first-child {
+.hamb.opened .hamb-first {
     width: 14px;
     transform: translate(-9px, 4px) rotate(-45deg);
 }
 
-.hamb.opened > span:last-child {
+.hamb.opened .hamb-last {
     transform: translate(7px, 0px) rotate(45deg);
 }
 
@@ -174,9 +173,22 @@ h1 {
     transition: 0.15s ease-out;
 }
 
-.menu:not(.opened) {
+.menu-desktop:not(.opened), .menu-mobile-wrapper:not(.opened) {
     user-select: none;
     pointer-events: none;
+}
+
+.menu-mobile {
+    @apply relative flex-col h-max translate-y-[-100%] pt-[100px] pb-10 w-[260px] bg-black flex items-end justify-center
+    text-sm gap-6 right-0 tracking-wider pr-14;
+}
+
+.menu-mobile-wrapper {
+    @apply fixed z-50 inset-0 flex items-stretch justify-end;
+}
+
+.menu-mobile-wrapper.opened {
+    @apply backdrop-grayscale;
 }
 
 .gallery-items > div:has(img) {
@@ -204,16 +216,24 @@ h1 {
 }
 
 .gallery-items > div:not(.gallery-text) {
-    width: 112px;
+    @apply w-[112px]
 }
 
 .photo-with {
-    @apply font-display flex items-center justify-center text-center text-[12px];
+    @apply flex items-center justify-center text-center text-[12px] w-max;
     background: color-mix(in srgb, var(--black) 8%, transparent);
 }
 
 .gallery-items .gallery-text {
     @apply w-auto;
+}
+
+.gallery-items {
+    @apply grid grid-rows-2 grid-flow-col gap-1 grid-cols-[repeat(auto-fit,112px)] max-[460px]:grid-cols-[repeat(auto-fit,64px)] max-[460px]:grid-rows-2;
+}
+
+.gallery-items > div:not(.gallery-text) {
+    background: color-mix(in srgb, var(--black) 4%, transparent);
 }
 
 .gallery-items > div img {
@@ -230,4 +250,42 @@ h1 {
 #popup {
     z-index: 51;
     cursor: zoom-out;
+}
+
+.sec {
+    @apply flex items-center justify-center w-full
+}
+
+.sec > div {
+    @apply text-2xl font-semibold
+}
+
+@media screen and (max-width: 460px) {
+    .wrapper {
+        @apply px-6;
+    }
+
+    .gallery-items .gallery-text {
+        @apply text-[12px];
+    }
+
+    .gallery-items {
+        @apply grid-rows-3;
+    }
+
+    .gallery-items .photo-with {
+        @apply text-[10px];
+    }
+
+    .gallery-items > div:not(.gallery-text) {
+        @apply w-[64px]
+    }
+
+    .gallery-items > div:has(img) {
+        opacity: 1;
+    }
+
+    /*.gallery-items > div:not(:has(:first-child)) {*/
+    /*    display: none !important;*/
+    /*}*/
 }

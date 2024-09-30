@@ -5,63 +5,85 @@ const popup = document.querySelector("#popup");
 const popupBody = document.querySelector("#popup > div");
 const popupImg = document.getElementById("#popup-img");
 const gallery = document.querySelector("#gallery");
+const w = document.body.clientWidth;
+const h = document.body.clientHeight;
 let currentHeight = 0;
 let isAnimate = false;
-const defaultSize = 85;
+const show = {
+  gray: 0,
+};
 
-function setPopupSize() {
-  const w = document.body.clientWidth;
-  const h = document.body.clientHeight;
+const getMeta = (url, cb) => {
+  const img = new Image();
+  img.onload = () => cb(img.width, img.height);
+  // img.onerror = (err) => cb(err);
+  img.src = url;
+};
+
+function setPopupSize(oW, oH) {
   const isHorizontal = w > h;
+  const mainH = isHorizontal ? h - 160 : (w - 48) / (oW / oH);
+  const mainW = isHorizontal ? (h - 160) * (oW / oH) : w - 48;
+  popupBody.style.height = `${mainH}px`;
+  popupBody.style.width = `${mainW}px`;
   currentHeight = popupBody.clientHeight;
-
-  popupBody.style.height = isHorizontal
-    ? defaultSize + "vh"
-    : defaultSize + "vw";
-  popupBody.style.width = isHorizontal
-    ? defaultSize + "vh"
-    : defaultSize + "vw";
+  // console.log(currentHeight);
+  return mainH;
 }
 
-setPopupSize();
+setPopupSize(w - 160, h - 160);
 
 window.addEventListener("resize", throttle(setPopupSize, 100));
-
+// OPEN
 gallery.addEventListener("click", (e) => {
-  if (e.target.tagName !== "IMG" && isAnimate) return false;
+  if (e.target.tagName !== "IMG" || isAnimate) return false;
   const src = e.target.getAttribute("data-img");
-  isAnimate = true;
-  anime({
-    targets: popup,
-    opacity: 1,
-    easing: "easeOutExpo",
-    complete() {
-      isAnimate = false;
-    },
+  getMeta(src, (w, h) => {
+    const height = setPopupSize(w, h);
+    isAnimate = true;
+
+    anime({
+      targets: show,
+      gray: 0,
+      easing: "linear",
+      update(anim) {
+        popup.style["backdrop-filter"] = `grayscale(${anim.progress / 100})`;
+      },
+      complete() {
+        isAnimate = false;
+      },
+    });
+    console.log(height);
+    anime({
+      targets: popupBody,
+      height: [0, height],
+      easing: "easeOutCubic",
+    });
+    popupImg.setAttribute("src", src);
+    popup.classList.add("show");
   });
-  anime({
-    targets: popupBody,
-    height: currentHeight + "px",
-    easing: "easeOutExpo",
-  });
-  popupImg.setAttribute("src", src);
-  popup.classList.add("show");
 });
+
+// CLOSE
 popup.addEventListener("click", () => {
   if (isAnimate) return;
   isAnimate = true;
   anime({
-    targets: popup,
-    opacity: 0,
-    easing: "easeInExpo",
-    complete() {
-      popup.classList.remove("show");
-      isAnimate = false;
+    targets: show,
+    gray: 0,
+    easing: "linear",
+    update(anim) {
+      popup.style["backdrop-filter"] = `grayscale(${1 - anim.progress / 100})`;
     },
   });
   anime({
     targets: popupBody,
-    height: "0px",
-    easing: "easeOutExpo",
+    height: 0,
+    easing: "easeOutCirc",
+    complete() {
+      popup.classList.remove("show");
+      popupImg.setAttribute("src", "#");
+      isAnimate = false;
+    },
   });
 });

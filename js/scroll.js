@@ -31,7 +31,7 @@ function onScroll({ scroll, limit, velocity, direction, progress }) {
 
 const locomotiveScroll = new LocomotiveScroll({
   lenisOptions: {
-    wrapper: window,
+    wrapper: document.querySelector("#main"),
     content: document.querySelector(".scroll-container"),
     lerp: 0.1,
     duration: 1.2,

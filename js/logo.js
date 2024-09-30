@@ -1,16 +1,20 @@
 import anime from "animejs";
 import throttle from "lodash.throttle";
 
-const logo = document.getElementById("header-logo");
-const logoB = document.querySelector(".logo-b");
-const logoT = document.querySelector(".logo-t");
+const isMobile = window.matchMedia("(max-width: 1280px)").matches;
 
-const logoD = document.querySelector(".logo-d");
-const logoO = document.querySelector(".logo-o");
-const logoL = document.querySelector(".logo-l");
-const logoI = document.querySelector(".logo-i");
-const logoN = document.querySelector(".logo-n");
-const logoA = document.querySelector(".logo-a");
+const logo = isMobile
+  ? document.getElementById("header-logo-mobile")
+  : document.getElementById("header-logo");
+const logoB = logo.querySelector(".logo-b");
+const logoT = logo.querySelector(".logo-t");
+
+const logoD = logo.querySelector(".logo-d");
+const logoO = logo.querySelector(".logo-o");
+const logoL = logo.querySelector(".logo-l");
+const logoI = logo.querySelector(".logo-i");
+const logoN = logo.querySelector(".logo-n");
+const logoA = logo.querySelector(".logo-a");
 
 let isScrolled = false;
 let isAnimate = false;
@@ -154,21 +158,23 @@ tlTop
 
 window.addEventListener(
   "scroll",
-  throttle(function () {
-    if (window.scrollY > 200 && !isScrolled) {
-      isScrolled = true;
-      logo.classList.add("scrolled");
-      mainTo.pause();
-      mainTo.reverse();
-      mainTo.play();
-      isAnimate = true;
-    } else if (window.scrollY < 200 && isScrolled) {
-      isScrolled = false;
-      logo.classList.remove("scrolled");
-      mainTo.pause();
-      mainTo.reverse();
-      mainTo.play();
-      isAnimate = true;
-    }
-  }, 100),
+  isMobile
+    ? null
+    : throttle(function () {
+        if (window.scrollY > 200 && !isScrolled) {
+          isScrolled = true;
+          logo.classList.add("scrolled");
+          mainTo.pause();
+          mainTo.reverse();
+          mainTo.play();
+          isAnimate = true;
+        } else if (window.scrollY < 200 && isScrolled) {
+          isScrolled = false;
+          logo.classList.remove("scrolled");
+          mainTo.pause();
+          mainTo.reverse();
+          mainTo.play();
+          isAnimate = true;
+        }
+      }, 100),
 );
