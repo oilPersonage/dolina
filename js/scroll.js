@@ -1,4 +1,5 @@
 import LocomotiveScroll from "locomotive-scroll";
+import "locomotive-scroll/dist/locomotive-scroll.min.css";
 
 Number.prototype.clamp = function (min, max) {
   return Math.min(Math.max(this, min), max);
