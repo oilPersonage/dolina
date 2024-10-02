@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <link rel="icon" type="image/svg+xml" href="/dolina.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link
             href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000
@@ -11,9 +11,9 @@
 		&family=Sofia+Sans+Condensed:wght@1..1000&display=swap"
             rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Vite App</title>
+    <title>Dolina Travel</title>
 </head>
-<body id="main">
+<body>
 <!--LOGO-->
 <a id="header-logo" data-scroll-to class="max-[460px]:hidden fixed z-[51] top-4 min-[460px]:left-[50%] min-[460px]:-translate-x-[50%] mix-blend-exclusion
 max-[460px]:right-14"
@@ -56,18 +56,18 @@ max-[460px]:right-14"
     </svg>
 </a>
 <!--LOGO-->
-<!--MOBILE MENU-->
-<div class="menu-mobile-wrapper">
-    <nav class="menu menu-mobile *:text-lg *:leading-none *:text-bg hover:*:text-accent">
-        <a data-scroll-to href="#main">Главная</a>
-        <a data-scroll-to href="#who">Кто мы</a>
-        <a data-scroll-to href="#tours">Туры</a>
-        <a data-scroll-to href="#reviews">Отзывы</a>
-        <a data-scroll-to href="#contacts">Контакты</a>
-    </nav>
-</div>
-<!--MOBILE MENU-->
 <div class="scroll-container">
+    <!--MOBILE MENU-->
+    <div class="menu-mobile-wrapper">
+        <nav class="menu menu-mobile *:text-lg *:leading-none *:text-bg hover:*:text-accent">
+            <a data-scroll-to href="#main">Главная</a>
+            <a data-scroll-to href="#who">Кто мы</a>
+            <a data-scroll-to href="#tours">Туры</a>
+            <a data-scroll-to href="#reviews">Отзывы</a>
+            <a data-scroll-to href="#contacts">Контакты</a>
+        </nav>
+    </div>
+    <!--MOBILE MENU-->
     <div class="fixed z-50 top-0 right-0 left-0 mix-blend-exclusion pt-4">
         <div class="flex items-center justify-between px-20 max-[1280px]:px-6">
             <div class="flex items-center max-[460px]:gap-2">
@@ -180,7 +180,7 @@ max-[460px]:right-14"
             </div>
         </div>
     </div>
-    <header data-scroll-section>
+    <header id="main" data-scroll-section>
         <div class="absolute overflow-hidden inset-0 top-[100px] bottom-[100px] max-[460px]:bottom-0 max-[460px]:top-20">
             <div class="wrapper min-h-full flex flex-1">
                 <div class="relative min-w-full">
@@ -265,18 +265,27 @@ max-[460px]:right-14"
                                     <img data-img="https://sun9-66.userapi.com/impg/lLFzudFG-pbKMKj7wjW9kKpDwofofBcJT-cA0Q/FqOthqBZCZE.jpg?size=1620x2160&quality=95&sign=7ec1e4e414e47fe3529a699ffef82b70&type=album"
                                          src="/3.png" alt="">
                                 </div>
-                                <div data-scroll data-scroll-css-progress data-scroll-speed="0.3"
-                                     style="opacity: calc(1 - var(--progress) * 3)"
-                                     class="gallery-text row-span-2 col-span-6 flex justify-center items-center w-full h-full flex-col px-16 -my-16px
+                                <div
+                                        class="gallery-text row-span-2 col-span-6 flex justify-center items-center w-full h-full flex-col px-16 -my-16px
                                             max-[460px]:row-span-3 max-[460px]:px-0 max-[460px]:col-start-1 max-[460px]:items-start max-[460px]:pr-4
                                             max-[460px]:col-span-full">
-                                    <h1 data-scroll class="pb-4 leading-none max-[480px]:text-2xl">
-                                        Дагестан
+                                    <h1 data-scroll
+                                        class="anim pb-4 leading-none max-[480px]:text-2xl max-[460px]:pb-1">
+                                        <span class="anim-line">
+                                            <span data-scroll>Дагестан</span>
+                                        </span>
                                     </h1>
-                                    <p class="text-[16px]">Покорите вершины: ваше приключение начинается
-                                        здесь!</p>
-                                    <a href="#tours" data-scroll-to="#tours" class="button mt-8 max-[460px]:mt-6">
-                                        <span>Хочу в Трип!</span></a>
+                                    <p data-scroll class="description text-[16px] text-accent">
+                                        <span class="description-line">
+                                            Покорите вершины: ваше приключение начинается здесь!
+                                        </span>
+                                    </p>
+                                    <div class="button-wrapper" data-scroll>
+                                        <a href="#tours" data-scroll-to="#tours"
+                                           class="button mt-8 max-[460px]:mt-6">
+                                            <span>Хочу в Трип!</span>
+                                        </a>
+                                    </div>
                                 </div>
                                 <div>
                                     <img data-img="https://sun9-66.userapi.com/impg/lLFzudFG-pbKMKj7wjW9kKpDwofofBcJT-cA0Q/FqOthqBZCZE.jpg?size=1620x2160&quality=95&sign=7ec1e4e414e47fe3529a699ffef82b70&type=album"
@@ -340,30 +349,66 @@ max-[460px]:right-14"
             </div>
         </div>
     </header>
-    <section data-scroll-section id="who" data-scroll-section>
-        <div class="wrapper flex h-full">
-            <p data-scroll data-scroll-speed="0.3">123</p>
-            <h2 data-scroll data-scroll-speed="0.3" data-scroll-delay="0.06" class="will-change-transform">КТО МЫ</h2>
+    <section data-scroll-section id="who">
+        <div class="wrapper flex items-center h-full">
+            <div class="heading">
+                <h2 class="*:will-change-transform">
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.15">К</span>
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.14">т</span>
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.13">о</span>
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.12" class="w-2"></span>
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.11">м</span>
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.10">ы</span>
+                </h2>
+                <span class="decor" data-scroll data-scroll-speed="2" class="will-change-transform"></span>
+            </div>
         </div>
     </section>
     <section data-scroll-section id="tours">
-        <div class="sec">
-            <div data-scroll data-scroll-position="end,start" data-scroll-offset="-300,-300" data-scroll-speed="-0.2">
-                ТУРЫ
+        <div class="wrapper">
+            <div class="heading">
+                <h2 class="*:will-change-transform">
+                    <span data-scroll data-scroll-speed="-2" data-scroll-delay="0.15">Т</span>
+                    <span data-scroll data-scroll-speed="-2" data-scroll-delay="0.14">у</span>
+                    <span data-scroll data-scroll-speed="-2" data-scroll-delay="0.13">р</span>
+                    <span data-scroll data-scroll-speed="-2" data-scroll-delay="0.12">ы</span>
+                </h2>
+                <span data-scroll data-scroll-speed="-2" class="decor !bg-bg"></span>
             </div>
         </div>
     </section>
     <section data-scroll-section id="reviews">
-        <div class="sec">
-            <div data-scroll data-scroll-position="end" data-scroll-offset="-300,-300" data-scroll-speed="-0.3">ОТЗЫВЫ
+        <div class="wrapper">
+            <div class="heading relative top-[120px]">
+                <h2 class="*:will-change-transform">
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.15">О</span>
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.14">т</span>
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.13">з</span>
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.11">ы</span>
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.10">в</span>
+                    <span data-scroll data-scroll-speed="2" data-scroll-delay="0.09">ы</span>
+                </h2>
+                <span data-scroll data-scroll-speed="2" class="decor"></span>
             </div>
         </div>
     </section>
-    <section data-scroll-section id="contacts">
-        <div class="sec">
-            <div data-scroll data-scroll-sticky data-scroll-speed="-0.3">КОНТАКТЫ</div>
+    <footer class="pt-10 pb-4 min-h-[220px]" data-scroll-section id="contacts">
+        <div class="wrapper">
+            <div class="flex gap-2 relative">
+                <h2 data-scroll class="anim">
+                    <span class="anim-line text-black">Контакты</span>
+                </h2>
+                <span data-scroll data-scroll-speed="-2" class="decor"></span>
+            </div>
+            <a class="group text-2xl gap-2 text-[14px]" href="tel:+79251480131">
+                <span class="text-accent">Даниил:</span>
+                +7 [ 925 ] <span
+                    class="relative transition-colors text-[14px] group-hover:text-accent leading-none">148-01-31</span></a>
+            <p class="mt-6">© 2024 Все права на тексты и изображения защищены авторским правом. Копирование и
+                использование
+                материалов без согласия правообладателя запрещено.</p>
         </div>
-    </section>
+    </footer>
 </div>
 <div id="popup" class="fixed inset-0 flex items-center justify-center">
     <div class="bg-bg mt-10">
@@ -371,6 +416,16 @@ max-[460px]:right-14"
              src=""
              alt="img">
     </div>
+</div>
+<div id="popup-loader" class="fixed z-10 inset-0 flex items-center justify-center">
+    <svg class="origin-bottom loader w-4 mt-1 -mr-2 fill-black"
+         width="26" height="22" viewBox="0 0 26 22" fill="inherit" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.0659 0.328125L25.4566 21.7893H0.675293L13.0659 0.328125Z" fill="inherit"/>
+    </svg>
+    <svg class="origin-bottom loader w-8 fill-black -mr-4 -mt-2"
+         width="40" height="35" viewBox="0 0 40 35" fill="inherit" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.0659 0.137451L39.6753 34.1019H0.456543L20.0659 0.137451Z" fill="inherit"/>
+    </svg>
 </div>
 <script type="module" src="main.js"></script>
 <!--<div class="scrollbar max-[460px]:hidden">-->

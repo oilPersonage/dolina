@@ -22,6 +22,7 @@ html[data-scroll-orientation="horizontal"] {
     --bg: #f9f4e0;
     --accent: #d26930;
     --black: #0B2D4D;
+    --black2: #143961;
     --accent2: #6ca3d5;
     --accentRevert: #e5d196;
     --neutral: #D6D6D8;
@@ -60,7 +61,7 @@ a {
 
 section, header {
     width: 100%;
-    min-height: 100svh;
+    min-height: 100vh;
     display: flex;
     align-items: start;
     /*overflow: hidden;*/
@@ -77,8 +78,25 @@ h1, h2, h3, h4, h5, a {
     @apply font-display;
 }
 
-h1.is-inview, h2.is-inview, h3.is-inview, h4.is-inview {
-    @apply rotate-12;
+.anim, h2, h3, h4, .description, .button-wrapper {
+    perspective: 600px;
+}
+
+.anim .anim-line, h2 .title-line, h3 .title-line, h4 .title-line, .description-line, .button-wrapper a {
+    display: block;
+    transform: translateY(100%) rotateX(-80deg);
+    transition: opacity 0.8s cubic-bezier(.215, .61, .355, 1), transform 0.8s cubic-bezier(.215, .61, .355, 1);
+    transform-origin: center top;
+    transform-style: preserve-3d;
+    transition-duration: 1s;
+    transition-delay: 0.1s;
+    opacity: 0;
+}
+
+.anim.is-inview .anim-line, h2.is-inview .title-line, h3.is-inview .title-line, h4.is-inview .title-line,
+.description.is-inview .description-line, .button-wrapper.is-inview a {
+    opacity: 1;
+    transform: none;
 }
 
 h1 {
@@ -90,7 +108,7 @@ h2 {
 }
 
 .button {
-    @apply relative font-display bg-accent flex px-10 py-4 text-sm text-white overflow-hidden;
+    @apply relative font-display bg-accent flex px-10 py-4 text-sm text-white overflow-hidden tracking-wider;
     transition: .3s ease-out;
 }
 
@@ -140,7 +158,7 @@ h2 {
     z-index: 9;
     right: 0;
     padding-inline: 4px;
-    top: 24px;
+    top: 0px;
     bottom: 6px;
     display: flex;
     justify-content: end;
@@ -154,7 +172,7 @@ h2 {
 }
 
 .scrollbar_thumb {
-    height: 126px;
+    /*height: 126px;*/
     min-width: 6px;
     background: var(--bg);
     cursor: pointer;
@@ -171,8 +189,16 @@ h2 {
     transform: translate(7px, 0px) rotate(45deg);
 }
 
-.phone {
-    position: relative;
+.heading {
+    @apply flex items-center gap-2;
+}
+
+.heading h2 {
+    @apply flex;
+}
+
+.heading .decor {
+    @apply w-4 h-0.5 bg-black will-change-transform;
 }
 
 .menu a {
@@ -247,24 +273,20 @@ h2 {
     @apply w-full h-full object-cover
 }
 
-#popup:not(.show) {
+#popup:not(.show), #popup-loader:not(.show) {
     z-index: -1;
     pointer-events: auto;
     user-select: none;
     opacity: 0;
 }
 
+#popup-loader {
+    z-index: 51;
+}
+
 #popup {
     z-index: 51;
     cursor: zoom-out;
-}
-
-.sec {
-    @apply flex items-center justify-center w-full
-}
-
-.sec > div {
-    @apply text-2xl font-semibold
 }
 
 @media screen and (max-width: 460px) {

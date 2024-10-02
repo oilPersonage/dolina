@@ -4,7 +4,7 @@ const w = gallery.clientWidth;
 const containerW = gallery.parentElement.clientWidth;
 const isMobile = window.matchMedia("(max-width: 1280px)").matches;
 
-const inertia = 0.1;
+const inertia = 0.05;
 let position = 0;
 let progress = 0;
 let mouseX = 0;
@@ -24,7 +24,7 @@ if (!isMobile) {
   });
 
   function animate(draw) {
-    requestAnimationFrame(function animate(time) {
+    requestAnimationFrame(function animate() {
       draw();
       requestAnimationFrame(animate);
     });
@@ -33,8 +33,9 @@ if (!isMobile) {
   animate(() => {
     let p = 0 - progress + mouseX * 2 * -1;
     const abs = (p * (w - containerW)) / 2 - position;
-    position = position + abs * inertia;
-    // const finalProgress = easeInOutCubic(pInertia);
+    let next = position + abs * inertia;
+    if (Math.abs(position - next) < 0.001) return;
+    position = next;
     gallery.style.transform = `translateX(${position}px)`;
   });
 }

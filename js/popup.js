@@ -4,7 +4,9 @@ import anime from "animejs";
 const popup = document.querySelector("#popup");
 const popupBody = document.querySelector("#popup > div");
 const popupImg = document.getElementById("#popup-img");
+const popupLoader = document.getElementById("popup-loader");
 const gallery = document.querySelector("#gallery");
+
 const w = document.body.clientWidth;
 const h = document.body.clientHeight;
 let currentHeight = 0;
@@ -37,8 +39,10 @@ window.addEventListener("resize", throttle(setPopupSize, 100));
 // OPEN
 gallery.addEventListener("click", (e) => {
   if (e.target.tagName !== "IMG" || isAnimate) return false;
+  popupLoader.classList.add("show");
   const src = e.target.getAttribute("data-img");
   getMeta(src, (w, h) => {
+    popupLoader.classList.remove("show");
     const height = setPopupSize(w, h);
     isAnimate = true;
 
@@ -53,7 +57,6 @@ gallery.addEventListener("click", (e) => {
         isAnimate = false;
       },
     });
-    console.log(height);
     anime({
       targets: popupBody,
       height: [0, height],

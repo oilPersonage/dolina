@@ -155,26 +155,20 @@ tlTop
     },
     "-=1000",
   );
-
-window.addEventListener(
-  "scroll",
-  isMobile
-    ? null
-    : throttle(function () {
-        if (window.scrollY > 200 && !isScrolled) {
-          isScrolled = true;
-          logo.classList.add("scrolled");
-          mainTo.pause();
-          mainTo.reverse();
-          mainTo.play();
-          isAnimate = true;
-        } else if (window.scrollY < 200 && isScrolled) {
-          isScrolled = false;
-          logo.classList.remove("scrolled");
-          mainTo.pause();
-          mainTo.reverse();
-          mainTo.play();
-          isAnimate = true;
-        }
-      }, 100),
-);
+export const animateLogo = throttle(function ({ scroll }) {
+  if (scroll.y > 200 && !isScrolled) {
+    isScrolled = true;
+    logo.classList.add("scrolled");
+    mainTo.pause();
+    mainTo.reverse();
+    mainTo.play();
+    isAnimate = true;
+  } else if (scroll.y < 200 && isScrolled) {
+    isScrolled = false;
+    logo.classList.remove("scrolled");
+    mainTo.pause();
+    mainTo.reverse();
+    mainTo.play();
+    isAnimate = true;
+  }
+}, 100);
