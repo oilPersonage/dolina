@@ -4,19 +4,7 @@ import { animateLogo } from "./logo.js";
 
 const isMobile = window.matchMedia("(max-width: 1280px)").matches;
 
-Number.prototype.clamp = function (min, max) {
-  return Math.min(Math.max(this, min), max);
-};
-
-function pauseEvent(e) {
-  if (e.stopPropagation) e.stopPropagation();
-  if (e.preventDefault) e.preventDefault();
-  e.cancelBubble = true;
-  e.returnValue = false;
-  return false;
-}
-
-const locomotive = new LocomotiveScroll({
+export const locomotive = new LocomotiveScroll({
   // el: document.querySelector("#main"),
   el: document.querySelector(".scroll-container"),
   duration: 800,
@@ -39,4 +27,4 @@ const locomotive = new LocomotiveScroll({
   // scrollCallback: onScroll,
 });
 
-locomotive.on("scroll", isMobile ? null : animateLogo);
+locomotive.on("scroll", isMobile ? () => null : animateLogo);

@@ -24,7 +24,7 @@ html[data-scroll-orientation="horizontal"] {
     --black: #0B2D4D;
     --black2: #143961;
     --accent2: #6ca3d5;
-    --accentRevert: #e5d196;
+    --accentRevert: #efe8d3;
     --neutral: #D6D6D8;
 
     color-scheme: light dark;
@@ -55,13 +55,19 @@ a {
     color: var(--black);
 }
 
+/*img {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    object-fit: cover;*/
+/*}*/
+
 /*a:visited {*/
 /*    color: inherit;*/
 /*}*/
 
 section, header {
     width: 100%;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     display: flex;
     align-items: start;
     /*overflow: hidden;*/
@@ -69,10 +75,14 @@ section, header {
     line-height: 1;
 }
 
-section:nth-of-type(2n) {
-    background: var(--black);
-    color: var(--bg);
+header {
+    min-height: 100vh;
 }
+
+/*section:nth-of-type(2n) {*/
+/*    background: var(--black);*/
+/*    color: var(--bg);*/
+/*}*/
 
 h1, h2, h3, h4, h5, a {
     @apply font-display;
@@ -112,7 +122,12 @@ h2 {
     transition: .3s ease-out;
 }
 
-.button span {
+.button-light {
+    @apply relative font-display flex px-10 py-4 text-sm text-white overflow-hidden tracking-wider;
+    transition: .3s ease-out;
+}
+
+.button span, .button-light span {
     @apply relative;
     z-index: 10;
 }
@@ -124,6 +139,17 @@ h2 {
 }
 
 .button:hover:after {
+    @apply translate-y-0;
+}
+
+
+.button-light:after {
+    @apply absolute inset-0 translate-y-[100%] bg-white/10;
+    content: '';
+    transition: .3s ease-out;
+}
+
+.button-light:hover:after {
     @apply translate-y-0;
 }
 
@@ -153,7 +179,7 @@ h2 {
     transition: 0.15s ease-out;
 }
 
-.scrollbar {
+.scrollbar, .scrollbar-tours {
     position: fixed;
     z-index: 9;
     right: 0;
@@ -164,6 +190,17 @@ h2 {
     justify-content: end;
     width: 10px;
     mix-blend-mode: difference;
+}
+
+.scrollbar-tours {
+    z-index: 999;
+    right: auto;
+    left: auto;
+}
+
+.scrollbar-tours-thumb {
+    @apply bg-bg;
+    height: 100px;
 }
 
 .scrollbar:hover .scrollbar_thumb {
@@ -273,11 +310,119 @@ h2 {
     @apply w-full h-full object-cover
 }
 
+.modal-tours-content {
+    scroll-behavior: smooth;
+}
+
+#modal-prices, #schedule, #extra, #recommendations, #work, #life {
+    scroll-margin-top: 50px;
+}
+
+.modal-tours-content::-webkit-scrollbar {
+    width: 0;
+}
+
+.tours-link {
+    @apply bg-bg;
+}
+
+.tours-link.active {
+    @apply text-accent transition-colors;
+}
+
 #popup:not(.show), #popup-loader:not(.show) {
     z-index: -1;
     pointer-events: auto;
     user-select: none;
     opacity: 0;
+}
+
+.modal-tours::before {
+    @apply absolute inset-0 bg-neutral-950/80 opacity-0;
+    content: '';
+    transition: opacity 0.3s linear;
+}
+
+.modal-tours.open::before {
+    @apply opacity-100;
+}
+
+.modal-tours.open {
+    z-index: 100;
+}
+
+.tours-slider {
+    position: relative;
+}
+
+.modal-tours-content .next, .modal-tours-content .prev {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    cursor: pointer;
+    @apply transition-colors;
+}
+
+.modal-tours-content .small .next svg, .modal-tours-content .small .prev svg {
+    width: 16px;
+    height: 16px;
+}
+
+.modal-tours-content .small .next, .modal-tours-content .small .prev {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    @apply transition-colors;
+}
+
+.modal-tours-content .next:hover, .modal-tours-content .prev:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.modal-tours-content .next {
+    right: 0;
+}
+
+.modal-tours-content .prev {
+    left: 0;
+}
+
+.modal-tours-content .small .navs {
+    gap: 4px;
+}
+
+.modal-tours-content .small .navs > div {
+    width: 16px;
+}
+
+.modal-tours-content .navs > div:hover {
+    background: var(--accent);
+}
+
+.modal-tours-content .navs {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.modal-tours-content .navs > div.tns-nav-active {
+    background: var(--accent);
+}
+
+.modal-tours-content .navs > div {
+    @apply transition-colors;
+    cursor: pointer;
+    width: 40px;
+    height: 2px;
+    background: var(--bg);
 }
 
 #popup-loader {

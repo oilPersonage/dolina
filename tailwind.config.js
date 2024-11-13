@@ -12,6 +12,7 @@ export default {
       fontFamily: {
         display: "Unbounded",
         body: "Roboto Flex, sans-serif",
+        curve: "Caveat, sans-serif",
       },
     },
   },

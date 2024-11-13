@@ -5,6 +5,7 @@ const popup = document.querySelector("#popup");
 const popupBody = document.querySelector("#popup > div");
 const popupImg = document.getElementById("#popup-img");
 const popupLoader = document.getElementById("popup-loader");
+const popupLoaderItems = document.querySelectorAll("#popup-loader svg");
 const gallery = document.querySelector("#gallery");
 
 const w = document.body.clientWidth;
@@ -35,14 +36,30 @@ function setPopupSize(oW, oH) {
 
 setPopupSize(w - 160, h - 160);
 
+const loaderAnime = anime({
+  targets: popupLoaderItems,
+  loop: true,
+  keyframes: [{ translateY: 0 }, { translateY: -6 }, { translateY: 0 }],
+  delay: anime.stagger(100),
+  easing: "linear",
+  autoplay: false,
+  duration: 800,
+});
+
 window.addEventListener("resize", throttle(setPopupSize, 100));
 // OPEN
 gallery.addEventListener("click", (e) => {
   if (e.target.tagName !== "IMG" || isAnimate) return false;
+  // START LOADER
   popupLoader.classList.add("show");
+  loaderAnime.play();
+
   const src = e.target.getAttribute("data-img");
   getMeta(src, (w, h) => {
+    // STOP LOADER
     popupLoader.classList.remove("show");
+    loaderAnime.pause();
+
     const height = setPopupSize(w, h);
     isAnimate = true;
 
