@@ -1,5 +1,5 @@
 import LocomotiveScroll from "locomotive-scroll";
-import "locomotive-scroll/dist/locomotive-scroll.min.css";
+import "../css/locomotive.css";
 import { animateLogo } from "./logo.js";
 
 const isMobile = window.matchMedia("(max-width: 1280px)").matches;

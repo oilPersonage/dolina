@@ -5,3 +5,7 @@ import "/js/gallery.js";
 import "/js/popup.js";
 import "/js/tours-scroll.js";
 import "/js/tours-sliders.js";
+
+if (import.meta.hot) {
+  import.meta.hot.accept();
+}

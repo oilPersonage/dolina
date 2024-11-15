@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   base: "/dolina/",
+  entry: "./main.js",
   build: {
     sourcemap: true,
     // Reduce bloat from legacy polyfills.
@@ -10,6 +11,7 @@ export default defineConfig({
     minify: true,
   },
   server: {
+    hmr: true,
     watch: {
       usePolling: true,
     },

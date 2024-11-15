@@ -425,6 +425,55 @@ h2 {
     background: var(--bg);
 }
 
+.adv {
+    grid-template-areas:
+            "a1 a1 a2"
+            "a1 a1 a3"
+            "a4 a5 a3"
+            "a6 a7 a7";
+    grid-template-rows: repeat(4, 160px);
+}
+
+.adv > li {
+    @apply relative flex flex-col;
+}
+
+.adv-text {
+    @apply bg-neutral-950/60 text-white font-[600] z-[1] text-center absolute left-0 right-0 bottom-0 py-2;
+}
+
+.adv-img img {
+    @apply w-full h-full object-cover
+}
+
+.adv-img {
+    @apply h-[calc(100%-40px)] flex flex-1;
+}
+
+.adv-1 {
+    grid-area: a1;
+}
+
+.adv-3 {
+    grid-area: a3;
+}
+
+.adv-4 {
+    grid-area: a4;
+}
+
+.adv-5 {
+    grid-area: a5;
+}
+
+.adv-6 {
+    grid-area: a6;
+}
+
+.adv-7 {
+    grid-area: a7;
+}
+
 #popup-loader {
     z-index: 51;
 }
