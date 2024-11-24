@@ -238,12 +238,23 @@ h2 {
     @apply w-4 h-0.5 bg-black will-change-transform;
 }
 
-.menu a {
-    opacity: 0;
+.menu-desktop a {
     transition: 0.15s ease-out;
 }
 
-.menu-desktop:not(.opened), .menu-mobile-wrapper:not(.opened) {
+.header-menu {
+    @apply transition-transform duration-1000;
+}
+
+.header-menu.hide {
+    @apply -translate-y-[80px]
+}
+
+.menu-desktop a.active {
+    @apply text-accent;
+}
+
+.menu-mobile-wrapper:not(.opened) {
     user-select: none;
     pointer-events: none;
 }
@@ -270,7 +281,6 @@ h2 {
 .gallery-items > div:has(img) {
     transition: 0.15s ease-out;
     overflow: hidden;
-    opacity: .6;
 }
 
 .gallery-items > div:has(img):hover {
@@ -282,7 +292,7 @@ h2 {
 }
 
 .gallery-items > div:has(img):hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .gallery-items > div:not(.gallery-text) {
@@ -352,17 +362,61 @@ h2 {
 }
 
 .tours-slider {
-    position: relative;
+    @apply relative;
 }
 
-.modal-tours-content .next, .modal-tours-content .prev {
-    position: absolute;
+.photo-slider .next, .photo-slider .prev {
+    @apply relative;
+}
+
+.photo-slider .next, .photo-slider .prev, .modal-tours-content .next, .modal-tours-content .prev, .modal-tours-content .small .next, .modal-tours-content .small .prev {
     z-index: 2;
-    top: 0;
-    bottom: 0;
     width: 60px;
-    cursor: pointer;
-    @apply transition-colors;
+    @apply absolute top-14 bottom-0 transition-all cursor-pointer;
+}
+
+.photo-slider .tns-ovh {
+    overflow: visible;
+}
+
+.photo-slider .tns-slider {
+    overflow: hidden;
+}
+
+.photo-slider .tns-item {
+    @apply transition-all duration-1000;
+}
+
+.photo-slider .tns-item:not(.tns-slide-active) {
+    @apply saturate-0 opacity-50;
+}
+
+.photo-slider .next svg, .photo-slider .prev svg {
+    @apply w-5 fill-black;
+}
+
+.photo-slider .next {
+    @apply right-0 w-10 h-10 opacity-50
+}
+
+.photo-slider .prev {
+    @apply right-10 w-10 h-10 opacity-50
+}
+
+.photo-slider .next:hover, .photo-slider .prev:hover {
+    @apply opacity-100;
+}
+
+.photo-slider .navs {
+    @apply absolute -bottom-2 flex gap-1
+}
+
+.photo-slider .navs div.tns-nav-active {
+    @apply bg-accent;
+}
+
+.photo-slider .navs div {
+    @apply w-6 h-0.5 bg-accentRevert
 }
 
 .modal-tours-content .small .next svg, .modal-tours-content .small .prev svg {
@@ -370,15 +424,6 @@ h2 {
     height: 16px;
 }
 
-.modal-tours-content .small .next, .modal-tours-content .small .prev {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    @apply transition-colors;
-}
 
 .modal-tours-content .next:hover, .modal-tours-content .prev:hover {
     background: rgba(0, 0, 0, 0.1);
@@ -482,6 +527,23 @@ h2 {
     z-index: 51;
     cursor: zoom-out;
 }
+
+.who-persona-scrolled {
+    @apply grid transition-transform duration-1000;
+}
+
+.who-persona {
+    @apply max-h-[calc(3*20px)] py-[20px] mb-10 overflow-hidden;
+}
+
+.who-persona span {
+    @apply transition-opacity duration-1000;
+}
+
+.who-persona span:not(.active) {
+    @apply opacity-20
+}
+
 
 @media screen and (max-width: 460px) {
     .wrapper {

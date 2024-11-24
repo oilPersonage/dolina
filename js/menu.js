@@ -1,33 +1,10 @@
 import anime from "animejs";
 
 const button = document.querySelector(".hamb");
-const menu = document.querySelector(".menu-desktop");
 const menuMobile = document.querySelector(".menu-mobile-wrapper");
 
 const isMobile = window.matchMedia("(max-width: 1280px)").matches;
 let isOpened = false;
-
-function animateDesktop() {
-  menu.classList.toggle("opened");
-  if (!isOpened) {
-    isOpened = true;
-    anime({
-      targets: ".menu-desktop a",
-      delay: anime.stagger(100, { direction: "reverse" }),
-      translateY: 12,
-      easing: "easeOutQuart",
-      opacity: 1,
-    });
-    return;
-  }
-  isOpened = false;
-  anime({
-    targets: ".menu-desktop a",
-    delay: anime.stagger(100),
-    translateY: 0,
-    opacity: 0,
-  });
-}
 
 function animateMobile() {
   menuMobile.classList.toggle("opened");
@@ -63,12 +40,9 @@ function animateMobile() {
 }
 
 function listener() {
+  if (!isMobile) return;
   button.classList.toggle("opened");
-  if (isMobile) {
-    animateMobile();
-    return;
-  }
-  animateDesktop();
+  animateMobile();
 }
 
 button.addEventListener("click", listener);

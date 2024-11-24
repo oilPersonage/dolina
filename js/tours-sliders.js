@@ -5,6 +5,7 @@ sliders.forEach((slider) => {
   tns({
     container: slider,
     items: 1,
+    gutter: 12,
     // slideBy: "page",
     prevButton: slider.previousElementSibling.previousElementSibling,
     nextButton: slider.previousElementSibling,
