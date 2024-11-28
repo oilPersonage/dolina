@@ -11,6 +11,7 @@ sliders.forEach((slider) => {
     nextButton: slider.previousElementSibling,
     navContainer: slider.nextElementSibling,
     autoplay: false,
+    loop: false,
     nav: true,
     speed: 1000,
     controls: true,

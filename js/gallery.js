@@ -1,3 +1,5 @@
+import anime from "animejs";
+
 const gallery = document.querySelector("#gallery");
 const header = document.querySelector("header");
 const w = gallery.clientWidth;
@@ -39,3 +41,20 @@ if (!isMobile) {
     gallery.style.transform = `translateX(${position}px)`;
   });
 }
+
+Array.from([...document.querySelectorAll("#gallery img")]).map((img) => {
+  if (img.complete) {
+    anime({
+      targets: img,
+      rotateX: 0,
+      duration: 1000,
+    });
+  }
+  img.addEventListener("load", () => {
+    anime({
+      targets: img,
+      rotateX: 0,
+      duration: 1000,
+    });
+  });
+});
